@@ -11,10 +11,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class DriverManager {
 
-	private static final String DRIVER_MAC = "src/test/resources/drivers/chromedriver_mac";
-	private static final String DRIVER_MAC_M1 = "src/test/resources/drivers/chromedriver_mac_m1";
-	private static final String DRIVER_WINDOWS = "src/test/resources/drivers/chromedriver_windows.exe";
-
 	private static WebDriver driver;
 	private static String customSessionId;
 
@@ -24,10 +20,10 @@ public class DriverManager {
 	public static WebDriver getInstance() {
 		try {
 			if (driver == null) {
-				System.setProperty("webdriver.chrome.driver", getDriverPath());
-				ChromeOptions cOption = new ChromeOptions();
-				cOption.addArguments("--remote-allow-origins=*");
-				driver = new ChromeDriver(cOption);
+				System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+				ChromeOptions Option = new ChromeOptions();
+				Option.addArguments("--remote-allow-origins=*");
+				driver = new ChromeDriver(Option);
 				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 			}
 		} catch (Exception e) {
@@ -50,24 +46,6 @@ public class DriverManager {
 		}
 		if (customSessionId != null) {
 			customSessionId = null;
-		}
-	}
-
-	private static String getDriverPath() throws Exception {
-		Properties sProps = System.getProperties();
-		String os = sProps.getProperty("os.name").toLowerCase();
-		String archType = sProps.getProperty("os.arch").toLowerCase();
-
-		if (os.startsWith("mac")) {
-			if (archType.startsWith("aarch64")) {
-				return DRIVER_MAC_M1;
-			} else {
-				return DRIVER_MAC;
-			}
-		} else if (os.startsWith("windows")) {
-			return DRIVER_WINDOWS;
-		} else {
-			throw new Exception("No driver available for your system");
 		}
 	}
 
