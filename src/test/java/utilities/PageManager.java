@@ -9,12 +9,7 @@ public class PageManager {
 	private static PageManager pageManager;
 	private WebDriver driver;
 
-	private HomePage homePage;
-	private LoginPage loginPage;
-	private Navbar navbar;
-	private DashboardPage dashboardPage;
-	private PostPage postPage;
-
+	private SearchPage searchPage;
 
 	private PageManager(WebDriver driver) {
 		this.driver = driver;
@@ -33,35 +28,11 @@ public class PageManager {
 		}
 	}
 
-	public HomePage homePage() {
-		if (homePage == null) {
-			homePage = new HomePage(driver);
+	public SearchPage searchPage() {
+		if (searchPage == null) {
+			searchPage = new SearchPage(driver);
 		}
-		return homePage;
+		return searchPage;
 	}
 
-	public LoginPage loginPage() {
-		if (loginPage == null) {
-			loginPage = new LoginPage(driver);
-		}
-		return loginPage;
-	}
-
-	public Navbar navbar() {
-		if (navbar == null) {
-			navbar = new Navbar(driver);
-		}
-		return navbar;
-	}
-
-	public DashboardPage dashboardPage() {
-		if (dashboardPage == null) {
-			dashboardPage = new DashboardPage(driver);
-		}
-		return dashboardPage;
-	}
-
-
-
-	}
-
+}
