@@ -25,27 +25,7 @@ public class DataManager {
 			dataManager = null;
 		}
 	}
+}
 
 	// Data
-	private String token;
-	private Response response;
-
-	public String getToken() {
-		assertNotNull(token, "DataManager - Token is not available");
-		return token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
-	}
-
-	public Response getResponse() {
-		assertNotNull(response, "DataManager - Response is not available");
-		return response;
-	}
-
-	public void setResponse(Response response) {
-		this.response = response;
-	}
-
-}
+	
