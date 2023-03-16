@@ -3,7 +3,7 @@ package utilities;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import io.restassured.response.Response;
-import pojo.User;
+
 
 public class DataManager {
 

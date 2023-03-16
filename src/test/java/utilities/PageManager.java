@@ -10,6 +10,7 @@ public class PageManager {
 	private WebDriver driver;
 
 	private SearchPage searchPage;
+	private LoginPage loginPage;
 
 	private PageManager(WebDriver driver) {
 		this.driver = driver;
@@ -34,5 +35,18 @@ public class PageManager {
 		}
 		return searchPage;
 	}
+<<<<<<< HEAD
 
 }
+=======
+	public LoginPage loginPage() {
+		if (loginPage == null) {
+			loginPage = new LoginPage(driver);
+		}
+		return loginPage;
+	}
+
+
+	}
+
+>>>>>>> 4a6b08f (changes)

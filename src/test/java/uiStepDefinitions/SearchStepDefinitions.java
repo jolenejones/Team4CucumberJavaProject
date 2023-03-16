@@ -12,11 +12,12 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import utilities.DriverManager;
 
 public class SearchStepDefinitions {
 	
 	
-	WebDriver driver = null;
+	WebDriver driver = DriverManager.getInstance();
 
 	@Given("browser is open")
 	public void browser_is_open() {
@@ -35,6 +36,8 @@ public class SearchStepDefinitions {
 	@And("user is on youtube search page")
 	public void user_is_on_youtube_search_page() {
 	    driver.navigate().to("https://www.youtube.com/");
+	    driver.manage().window().maximize();
+	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	}
 
 	@When("user enters a text in search box")

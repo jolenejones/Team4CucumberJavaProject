@@ -8,12 +8,12 @@ import org.junit.platform.suite.api.Suite;
 
 @Suite
 @IncludeEngines("cucumber")
-@SelectClasspathResource("features/Search.feature")
+@SelectClasspathResource("features")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/html-report/index.html")
-@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value ="uiStepDefinitions, hooks")
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value ="uiStepDefinitions, hooks, pageObjects")
 @ConfigurationParameter(key =SNIPPET_TYPE_PROPERTY_NAME, value ="camelcase" )
 @ConfigurationParameter(key =EXECUTION_DRY_RUN_PROPERTY_NAME, value = "false")
-@ConfigurationParameter(key =FILTER_TAGS_PROPERTY_NAME, value = "@Search")
+@ConfigurationParameter(key =FILTER_TAGS_PROPERTY_NAME, value = "@Login")
 public class TestRunner {
 
 
