@@ -1,7 +1,5 @@
 package pageObjects;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,27 +8,36 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SearchPage {
 
-		// Local Variable
-			private WebDriver driver;
-//			Elements
-		@FindBy(how= How.XPATH,using="//span[@class='base']")
-		private WebElement searchResult;
+	// Local Variable
+	private WebDriver driver;
+	private static final String URL = "https://www.youtube.com/";
 
-		// Constructor ?
-		public SearchPage(WebDriver driver) {
-			this.driver=driver;
-			PageFactory.initElements(driver, this);
-		}
+	// Elements
+	@FindBy(how = How.ID, using = "search")
+	private WebElement searchField;
+	@FindBy(how = How.CLASS_NAME, using = "style-scope ytd-searchbox")
+	private WebElement searchButton;
+	@FindBy(how = How.XPATH, using = "//*[text()='Michelle Yeoh Accepts the Oscar for Lead Actress']")
+	private WebElement searchResult;
 
-		// Actions
-		public void validate(String expectedSearchInformaion) {
-			boolean contains = false;
-			if (searchResult.getText().contains(expectedSearchInformaion)) {
-				contains=true;
-			}
-		  assertTrue(contains,"the serch information is not contains");
-		}
+//	Constructor
+	public SearchPage(WebDriver driver) {
+		this.driver=driver;
+		PageFactory.initElements(driver,this);
+	}
+// Action
+	public void navigate() {
+		driver.get(URL);
+	}
+
+	public void enterSearchInformation(String searchInformation) {
+		searchField.sendKeys(searchInformation);
+	}
+
+	public void clickSearchButton() {
+		searchButton.click();
+	}
 
 
+}
 
-		}

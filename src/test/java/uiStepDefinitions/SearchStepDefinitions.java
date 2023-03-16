@@ -53,7 +53,41 @@ public class SearchStepDefinitions {
 	   driver.close();
 	   driver.quit();
 	}
+	@Given("I open the url {string}")
+	public void i_open_the_url(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
 
+	@Given("the element {string} not contains any text")
+	public void the_element_not_contains_any_text(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Given("I clear the inputfield {string}")
+	public void i_clear_the_inputfield(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Given("I add {string} to the inputfield {string}")
+	public void i_add_to_the_inputfield(String string, String string2) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("I press {string}")
+	public void i_press(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("I expect that search content contains the text {string}")
+	public void i_expect_that_search_content_contains_the_text(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
 	}
 
 

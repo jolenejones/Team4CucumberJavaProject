@@ -9,9 +9,7 @@ public class PageManager {
 	private static PageManager pageManager;
 	private WebDriver driver;
 
-	private HomePage homePage;
 	private SearchPage searchPage;
-
 
 	private PageManager(WebDriver driver) {
 		this.driver = driver;
@@ -30,14 +28,6 @@ public class PageManager {
 		}
 	}
 
-	public HomePage homePage() {
-		if (homePage == null) {
-			homePage = new HomePage(driver);
-		}
-		return homePage;
-	}
-
-
 	public SearchPage searchPage() {
 		if (searchPage == null) {
 			searchPage = new SearchPage(driver);
@@ -45,7 +35,4 @@ public class PageManager {
 		return searchPage;
 	}
 
-
-
-	}
-
+}
